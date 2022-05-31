@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/camuflado.jpeg);   
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+
+
+/* Meio */
+
+.meio{
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    margin: 0;
+    width: 100vw;
+    height: 62vh;
+
+    
+}
+
+.container-meio {
+    
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    letter-spacing: 8px;
+    background-color: black;
+    opacity: 0.7;
+    padding: 24px;
+    margin-bottom: 12px;
+    
+
+    /* border: solid 3px black; */
+}
+
+.meio-texto {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    width: 500px;
+    margin-bottom: 182px;
+
+    /* border: solid 3px white; */
+}
+
+.btn-quiz{
+    padding: 10px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    display: flex;
+
+}
+
+.cadastro:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+
+/* Meio com as perguntas*/
+
+.container-quiz {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+}
+
+.myChart {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: fit-content;
+    height: auto;
+    border: solid 2px darkgreen;
+    border-radius: 24px;
+
+    background-color: white;
+}
+
+.myChart .titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 960px;
+    border-bottom: solid 2px black;
+
+}
+
+.myChart .pergunta {
+    padding: 20px;
+    width: 80%;
+    height: 100px;
+    font-size: 35px;
+
+  
+}
+
+
+
+input {
+    width: 100px;
+}
+
+.respostas {
+   
+    width: 70%;
+    height: auto;
+}
+
+.resposta_esquerda {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 85px;
+
+ 
+}
+
+.resposta_direita {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 85px;
+
+
+    
+}

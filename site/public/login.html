@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AcquaTec | Login</title>
+
+    <script src="./js/funcoes.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="./css/login.css">
+
+</head>
+
+<body>
+
+    <div class="fundo">
+        <div class="header">
+            <div class="container">
+                <div class="titulo">
+                    <img src="./assets/img/military-hat.png" alt="">
+                    <h1>EBC</h1>
+                </div>
+
+                <ul class="navBar" style="display: none;">
+                    <li class="aqui">
+                        <a href="">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            História
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            Característica
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="register">
+                    <li class="register-login">
+                        <a href="index.html">
+                            SÓ ESTOU NAVEGANDO
+                        </a>
+                    </li>
+
+
+                    <li class="register-cadastrar">
+                        <a href="cadastro.html">
+                            CADASTRO
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+            <div class="banner_login">
+                <div class="login-container">
+    
+    
+                    <div class="login">
+                        <h2>ENTRAR</h2>
+
+                        <div class="box_login">
+                            <div class="box">
+
+                                Email
+                                <div class="campo">
+                                    <input id="email_input" class="ipt" type="text" placeholder="exemplo@gmail.com">
+                                </div>
+                            </div>
+                            <div class="box">
+
+                                Senha
+                                <div class="campo">
+                                    <input id="senha_input" class="ipt" type="password" placeholder="**********">
+                                </div>
+                            </div>
+                        </div>
+
+                        <span id="msg_erro" style="display: none;" class="msg_erro_login">Mensagem de erro</span>
+                        <button onclick="entrar()" class="btn_acessar">Acessar</button>
+                        <h6>Sem registro? <a href="cadastro.html">Criar conta</a></h6>
+    
+                    </div>
+                </div>
+            </div>
+
+        
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            msg_erro.style.display = `block`
+            msg_erro.innerHTML = `Preencha todos os campos!`
+
+
+            return false;
+        }
+        else {
+            
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/inicio.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+</script>

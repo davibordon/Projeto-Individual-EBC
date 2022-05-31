@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="fundo-quiz">
+        <div class="header">
+            <div class="container">
+                <div class="titulo">
+                    <img src="img/military-hat.png">
+                    <h1>EBC</h1>
+                </div>
+
+                <ul class="navBar">
+                    <li>
+                        <a href="inicio.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="patentes.html">
+                            Patentes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sobre.html">
+                            Sobre mim
+                        </a>
+                    </li>
+
+                    <li class="aqui">
+                        <a href="quiz.html">
+                            Quiz
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="register">
+                    <li class="hello">
+                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                    </li>
+
+
+                    <li class="cadastrar">
+                        <a href="cadastro.html">
+                            SAIR
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div id="meio1">
+
+        <div class="meio">
+            <div class="container-meio">
+                <span>RESPONDA CORRETAMENTE E UPE SUA PATENTE</span>
+            </div>
+
+            <div class="meio-texto">
+                <button class="btn-quiz" onclick="comecar_quiz()">INICIAR JOGO</button>
+            </div>
+        </div>
+
+        <div class="meio-carro" id="carror">
+            <img src="img/tanque.gif" alt="">
+        </div>
+    </div>
+
+    <div id="meio2">
+        <div class="container-quiz">
+            <div class="myChart">
+                <div class="titulo">
+                    <h1>Quiz</h1>
+                </div>
+                <div class="pergunta">
+                    <span>Quem é o atual General do Exército Brasileiro?</span>
+                </div>
+                <div class="respostas">
+
+                    <div class="resposta_esquerda">
+                        <button>dsadasd</button>
+                        <button>dsadasd</button>
+                    </div>
+                    <div class="resposta_direita">
+                        <button>dsadasd</button>
+                        <button>dsadasd</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var x = 0
+    var y = 2
+
+    function Movercarro() {
+        y = y + 2;
+        x = `${y}px`
+        document.getElementsByClassName("meio-carro")[0].style.marginLeft = `${x}`;
+
+        if (y == 1300) {
+            y = -300
+
+        }
+
+    } setInterval(Movercarro, 20);
+
+    function comecar_quiz() {
+
+        meio1.style.display = `none`
+
+    }
+</script>

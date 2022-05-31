@@ -1,0 +1,228 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../assets/img/camuflado.jpeg);   
+    background-size: cover;
+}
+
+/* Fundo da Tela home*/
+
+.fundo {
+    margin: 0;
+    /* border: 3px solid red; */
+
+}
+
+/* Header contendo o container com o titulo + navBar*/
+
+.header {
+    display: flex;
+    border-bottom: solid 3px darkgreen;
+    color: white;
+    background-color: black;
+    height: 100%;
+    opacity: 0.7;
+
+    margin-bottom: 32px;
+
+    /* border: 3px solid blue; */
+    
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    /* border: 3px solid purple; */
+
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+
+    /* border: 3px solid blue; */
+}
+
+.titulo img{
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    opacity: 1;
+}
+
+/* navBar contendo Home História e Características*/
+
+.navBar {
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    width: 560px;
+    justify-content: space-around;
+
+    /* border: 3px solid aqua; */
+
+}
+
+.navBar a, .register a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 2 parte da navBar contendo o register(login + cadastro)*/
+
+.register {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    width: 400px;
+    list-style: none;
+    justify-content: space-evenly;
+
+    /* border: 3px solid darkred; */
+}
+
+.cadastrar, .cadastrar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: white;
+    width: 100px;
+    height: 40px;
+}
+
+.cadastrar:hover, .login:hover{
+    opacity: 0.7;
+}
+
+/* CADASTRO - COMEÇO*/
+
+.cadastro{
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    border-radius: 24px;
+    width: 1000px;
+    height: 80%;
+    padding: 12px 12px 32px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.banner_cadastro .container{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.boxes_cadastro{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    flex-direction: row;
+    padding-bottom: 24px;
+}
+
+.boxes_cadastro .linha{
+    height: 80%;
+    width: 2px;
+    background-color: whitesmoke;
+}
+
+.box_cadastro{
+    height: 80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: medium;
+    font-weight: bold;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
+    height: 72px;
+}
+
+.msg_erro {
+    text-align: center;
+
+    color:#E3101F;
+    font-size: small;
+    font-weight: lighter;
+    width: 100%;
+}
+
+.cadastro_titulo{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.fim_cadastro{
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_cadastro{
+    border-radius: 24px;
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+    margin-top: 10px;
+    border: none;
+    justify-items: center;
+}
+
+.btn_cadastro:hover {
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+}
+
+.ipt {
+    display: flex;
+    border-radius: 24px;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    width: 320px;
+}
+
+
+
+/* CADASTRO - FIM */
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    color: #fff;
+    font-size: 1em;
+    background-color: darkgreen;
+}
+
+
+element.style {
+    background-color: darkolivegreen;
+    display: grid;
+}

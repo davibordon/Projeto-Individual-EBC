@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+<body onload="validarSessao()">
+
+     <!-- HEADER -->
+
+     <div class="fundo">
+        <div class="header">
+            <div class="container">
+                <div class="titulo">
+                    <img src="img/military-hat.png">
+                    <h1>EBC</h1>
+                </div>
+
+                <ul class="navBar">
+                    <li class="aqui">
+                        <a href="inicio.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="patentes.html">
+                            Patentes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sobre.html">
+                            Sobre mim
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="quiz.html">
+                            Quiz
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="register">
+                    <li class="hello">
+                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                    </li>
+
+
+                    <li class="cadastrar">
+                        <a href="cadastro.html">
+                            SAIR
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner -->
+
+
+    </body>
+</html>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>
