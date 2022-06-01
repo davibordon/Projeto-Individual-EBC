@@ -31,7 +31,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function buscarMedidasEmTempoReal() {
 
     instrucaoSql = ''
 
@@ -61,8 +61,15 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+function pegarPontosModel(idusuario) {
+    instrucaoSql = `select sum(pontos) as 'Pontos', id from Quiz join usuario on fkUsuario = ${idusuario} group by id;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    pegarPontosModel
 }

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/inicio.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Document</title>
 </head>
+
 <body onload="validarSessao()">
 
-     <!-- HEADER -->
+    <!-- HEADER -->
 
-     <div class="fundo">
+    <div class="fundo">
         <div class="header">
             <div class="container">
                 <div class="titulo">
@@ -30,12 +34,6 @@
                     <li>
                         <a href="patentes.html">
                             Patentes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="sobre.html">
-                            Sobre mim
                         </a>
                     </li>
 
@@ -65,10 +63,105 @@
 
     <!-- Banner -->
 
+    <div class="banner">
+        <div class="banner-container">
+            <div class="banner-titulo">
+                <span>PERFIL</span>
+            </div>
 
-    </body>
+
+            <div class="corpo1">
+                <div class="user">
+                    <span>USERNAME</span>
+                </div>
+            </div>
+
+            <div class="corpo2">
+                <div class="pontos">
+                    <span id="valor">PONTOS</span>
+                </div>
+            </div>
+
+            <div class="patente">
+                <img src="./img/Soldado_EB.png" alt="">
+                <span>SOLDADO 1°CLASE</span>
+
+            </div>
+        </div>
+
+        
+        <div>
+            <canvas id="myChart" style="position: relative; height:40vh; width:40vw"></canvas>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+
 </html>
 
 <script>
+
+    var score = 0;
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+
+    fetch("/medidas/pegarPontos", {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+        idUsuario: idUsuario
+      })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(json[0].Pontos);
+                score = json[0].Pontos;
+                valor.innerHTML = `${score}`
+
+                gerarGrafico();
+            })
+        }
+    })
+
+    function gerarGrafico() {
+        const labels = [
+            "Pontos",
+        ];
+
+        
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Rendimento',
+            backgroundColor: 'rgb(255, 0, 0)',
+            borderColor: 'rgb(255, 0, 0)',
+            data: [score],
+        },
+        ]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+    };
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+}
+
 </script>

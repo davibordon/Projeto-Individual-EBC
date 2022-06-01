@@ -1,0 +1,73 @@
+.banner {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-container {
+    width: 70vw;
+}
+
+.banner-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+    color: white;
+    border-bottom: solid 3px black;
+    background-color: darkgreen;
+    
+}
+
+.corpo1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    border-left: solid 2px black;
+    border-right: solid 2px black;
+    border-bottom: solid 2px black;
+}
+
+.corpo2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    border-left: solid 2px black;
+    border-right: solid 2px black;
+    border-bottom: solid 2px black;
+
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.pontos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+.patente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    border-left: solid 2px black;
+    border-right: solid 2px black;
+    border-bottom: solid 2px black;
+}
