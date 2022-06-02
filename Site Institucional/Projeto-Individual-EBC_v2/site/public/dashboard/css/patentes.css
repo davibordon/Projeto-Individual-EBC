@@ -1,0 +1,91 @@
+body {
+    background-image: url(../img/camuflado.jpeg);
+}
+
+.tabela {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.colunas {
+    margin-top: 36px;
+    width: 95%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    
+    border: solid 3px darkgreen;
+
+    margin-bottom: 24px;
+    
+}
+
+.tabela-titulo {
+    width: 100%;
+
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+
+
+}
+
+.patentes {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    
+    border-bottom: 2px solid black;
+    
+}
+
+.patentes_graduados {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+
+}
+
+
+.soldado img {
+    width: 128px;
+    height: 150px;
+}
+
+.s1 {
+    padding-right: 84px;
+    padding-left: 70px;
+
+}
+
+.sotache img {
+    width: 211px;
+    height: 134px;
+}
+
+.blocos {
+    display: grid;
+
+    margin-bottom: 18px;
+
+    
+}
+
+.desc {
+    font-weight: bold;
+}
+
+.swal2-image {
+    width: 211px;
+    height: 134px;
+    margin: 2em auto 1em;
+}
+
+.tabela img:hover {
+    cursor: pointer;
+}

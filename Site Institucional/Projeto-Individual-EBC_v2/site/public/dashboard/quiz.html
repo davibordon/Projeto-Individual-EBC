@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/quiz.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="fundo-quiz">
+        <div class="header">
+            <div class="container">
+                <div class="titulo">
+                    <img src="img/military-hat.png">
+                    <h1>EBC</h1>
+                </div>
+
+                <ul class="navBar">
+                    <li>
+                        <a href="inicio.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="patentes.html">
+                            Patentes
+                        </a>
+                    </li>
+
+                    <li class="aqui">
+                        <a href="quiz.html">
+                            Quiz
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="register">
+                    <li class="hello">
+                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                    </li>
+
+
+                    <li class="cadastrar">
+                        <a href="cadastro.html">
+                            SAIR
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div id="meio1">
+
+        <div class="meio">
+            <div class="container-meio">
+                <span>RESPONDA CORRETAMENTE E UPE SUA PATENTE</span>
+            </div>
+
+            <div class="meio-texto">
+                <button class="btn-quiz" onclick="comecar_quiz()">INICIAR JOGO</button>
+            </div>
+        </div>
+
+        <div class="meio-carro" id="carror">
+            <img src="img/tanque.gif" alt="">
+        </div>
+    </div>
+
+    <div id="meio2" style="display: none;">
+        <div class="container-quiz">
+            <div class="myChart">
+                <div class="titulo">
+                    <h1>Quiz</h1>
+                </div>
+
+                <!--Pergunta 1-->
+
+                <div id="caixa1">
+                    <div class="pergunta">
+                        <span>Quem é o atual General do Exército Brasileiro?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="certa1()" value="Marco Antônio Freire">
+                            <input type="button" class="inp_btn" onclick="errada1()" value="Carlos Roberto">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada1()" value="Paulo Guedes">
+                            <input type="button" class="inp_btn" onclick="errada1()" value="Madureira">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 2-->
+
+                <div id="caixa2" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>O que signifia ESA?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="errada2()" value="Escola de SubTenentes">
+                            <input type="button" class="inp_btn" onclick="errada2()" value="Escritório do Exército">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="certa2()" value="Escola de Sargentos das Armas">
+                            <input type="button" class="inp_btn" onclick="errada2()" value="Escola de Sargentos das Américas">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 3-->
+
+                <div id="caixa3" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>O que significa EsPCEx?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="certa3()" value="Escola Preparatória de Cadetes">
+                            <input type="button" class="inp_btn" onclick="errada3()" value="Tiro de Guerra">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada3()" value="Estação Espacial X">
+                            <input type="button" class="inp_btn" onclick="errada3()" value="Escola de Pilotos do Exército">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 4-->
+
+                <div id="caixa4" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>Qual patente recebe o cidadão que esta cumprindo o seu periodo de instrução obrigatório?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="certa4()" value="Atirador">
+                            <input type="button" class="inp_btn" onclick="errada4()" value="Tenente">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada4()" value="Cabo">
+                            <input type="button" class="inp_btn" onclick="errada4()" value="Major">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 5-->
+
+                <div id="caixa5" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>Qual o primeiro posto dos Oficiais Superiores?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="errada5()" value="Marechal">
+                            <input type="button" class="inp_btn" onclick="certa5()" value="Major">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada5()" value="Tenente-Coronel">
+                            <input type="button" class="inp_btn" onclick="errada5()" value="Coronel">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 6-->
+
+                <div id="caixa6" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>Qual a patente mais alta do exército brasileiro em tempos de guerra?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="errada6()" value="Coronel">
+                            <input type="button" class="inp_btn" onclick="errada6()" value="General do Exército">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada6()" value="Cabo">
+                            <input type="button" class="inp_btn" onclick="certa6()" value="Marechal">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 7-->
+
+                <div id="caixa7" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>A função primaria de um Cabo é comanda uma esquadra composta por?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="errada7()" value="1 Cabo e 2 Soldados">
+                            <input type="button" class="inp_btn" onclick="certa7()" value="1 Cabo e 3 Soldados">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada7()" value="1 Cabo e 3 Sargentos">
+                            <input type="button" class="inp_btn" onclick="errada7()" value="4 Soldados">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 8-->
+
+                <div id="caixa8" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>Qual a menor unidade militar, normalmente comandada por um Tenente?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="errada8()" value="Esquadra">
+                            <input type="button" class="inp_btn" onclick="certa8()" value="Pelotão">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada8()" value="Batalão">
+                            <input type="button" class="inp_btn" onclick="errada8()" value="Guarda">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 9-->
+
+                <div id="caixa9" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>Qual patente recebe a designação de "chefe de regimento militar"?</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="errada9()" value="Tenente-Coronel">
+                            <input type="button" class="inp_btn" onclick="errada9()" value="Major">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="certa9()" value="Coronel">
+                            <input type="button" class="inp_btn" onclick="errada9()" value="1°Tenente">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta 10-->
+
+                <div id="caixa10" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>Qual o dia do Exército</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <input type="button" class="inp_btn" onclick="errada10()" value="07 de Setembro">
+                            <input type="button" class="inp_btn" onclick="errada10()" value="29 de Maio">
+                        </div>
+                        <div class="resposta_direita">
+                            <input type="button" class="inp_btn" onclick="errada10()" value="9 de Julho">
+                            <input type="button" class="inp_btn" onclick="certa10()" value="19 de Abril">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Pergunta Tela Final-->
+
+                <div id="resultado" style="display: none;">
+
+                    <div class="pergunta">
+                        <span>PARABENS! Você finalizou o Quiz.</span>
+                    </div>
+                    <div class="respostas">
+
+                        <div class="resposta_esquerda">
+                            <span id="acertos"></span>
+                            <span id="erros"></span>
+                        </div>
+                        <div class="resposta_direita">
+                            <span id="media"></span>
+                            <span id="ponto"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    var ax_certa = 0
+    var ax_errada = 0
+    var ax_media = 0
+    var pontos = 0
+
+    function certa1() {
+        caixa1.style.display = `none`
+        caixa2.style.display = `block`
+
+        ax_certa++;
+    }
+
+    function errada1() {
+        caixa1.style.display = `none`
+        caixa2.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa2() {
+        caixa2.style.display = `none`
+        caixa3.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada2() {
+        caixa2.style.display = `none`
+        caixa3.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa3() {
+        caixa3.style.display = `none`
+        caixa4.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada3() {
+        caixa3.style.display = `none`
+        caixa4.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa4() {
+        caixa4.style.display = `none`
+        caixa5.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada4() {
+        caixa4.style.display = `none`
+        caixa5.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa5() {
+        caixa5.style.display = `none`
+        caixa6.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada5() {
+        caixa5.style.display = `none`
+        caixa6.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa6() {
+        caixa6.style.display = `none`
+        caixa7.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada6() {
+        caixa6.style.display = `none`
+        caixa7.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa7() {
+        caixa7.style.display = `none`
+        caixa8.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada7() {
+        caixa7.style.display = `none`
+        caixa8.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa8() {
+        caixa8.style.display = `none`
+        caixa9.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada8() {
+        caixa8.style.display = `none`
+        caixa9.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa9() {
+        caixa9.style.display = `none`
+        caixa10.style.display = `block`
+        
+        ax_certa++;
+    }
+
+    function errada9() {
+        caixa9.style.display = `none`
+        caixa10.style.display = `block`
+
+        ax_errada++
+    }
+
+    function certa10() {
+        caixa10.style.display = `none`
+        resultado.style.display = `block`
+        ax_certa++;
+
+        ax_media = (ax_certa / 10) * 100
+        pontos = ax_certa * 10
+
+        acertos.innerHTML = `Quantidade de acertos: ${ax_certa}`
+        erros.innerHTML = `Quantidade de erros: ${ax_errada}`
+        media.innerHTML = `Média de acertos ${ax_media}%`
+        ponto.innerHTML = `Pontos recebidos: ${pontos}`
+
+    }
+
+    function errada10() {
+        caixa10.style.display = `none`
+        resultado.style.display = `block`
+        ax_errada++;
+
+        ax_media = (ax_certa / 10) * 100
+        pontos = ax_certa * 10
+
+        acertos.innerHTML = `Quantidade de acertos: ${ax_certa}`
+        erros.innerHTML = `Quantidade de erros: ${ax_errada}`
+        media.innerHTML = `Média de acertos: ${ax_media}%`
+        ponto.innerHTML = `Pontos recebidos: ${pontos}`
+    }
+
+
+
+
+
+    var x = 0
+    var y = 2
+
+    function Movercarro() {
+        y = y + 2;
+        x = `${y}px`
+        document.getElementsByClassName("meio-carro")[0].style.marginLeft = `${x}`;
+
+        if (y == 1300) {
+            y = -300
+
+        }
+
+    }
+    setInterval(Movercarro, 20);
+
+    function comecar_quiz() {
+
+        meio1.style.display = `none`
+        meio2.style.display = `block`
+
+    }
+</script>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/patentes.css">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="fundo">
+        <div class="header">
+            <div class="container">
+                <div class="titulo">
+                    <img src="img/military-hat.png">
+                    <h1>EBC</h1>
+                </div>
+
+                <ul class="navBar">
+                    <li>
+                        <a href="inicio.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="aqui">
+                        <a href="patentes.html">
+                            Patentes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="quiz.html">
+                            Quiz
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="register">
+                    <li class="hello">
+                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                    </li>
+
+
+                    <li class="cadastrar">
+                        <a href="cadastro.html">
+                            SAIR
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner -->
+
+    <!-- OFICIAIS GENERAIS-->
+
+    <div class="tabela">
+        <div class="colunas">
+            <div class="tabela-titulo">
+                <h2>OFICIAIS GENERAIS</h2>
+            </div>
+
+            <div class="patentes">
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Marechal (1).gif" onclick="marechal()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>MARECHAL</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/General_do_Exército.gif" onclick="general_exercito()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>GENERAL-DE-EXÉRCITO</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Insígnia_de_General_de_Divisão.gif" onclick="general_divisao()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>GENERAL-DE-DIVISÃO</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Insígnia_de_General_de_Brigada.gif" onclick="general_brigada()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>GENERAL-DE-BRIGADA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OFICIAIS SUPERIORES-->
+
+            <div class="tabela-titulo">
+                <h2>OFICIAIS SUPERIORES</h2>
+            </div>
+
+            <div class="patentes">
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Coronel.png" onclick="coronel()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>CORONEL</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Tenente-Coronel.gif" onclick="tenente_coronel()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>TENENTE CORONEL</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Major_Exército.gif" onclick="major()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>MAJOR</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- OFICIAL INTERMEDIÁRIO-->
+
+            <div class="tabela-titulo">
+                <h2>OFICIAL INTERMEDIÁRIO</h2>
+            </div>
+
+            <div class="patentes">
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Capitão.png" onclick="capitao()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>CAPITÃO</span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- OFICIAIS SU onclick="()"BALTERNOS-->
+
+            <div class="tabela-titulo">
+                <h2>OFICIAIS SUBALTERNOS</h2>
+            </div>
+
+            <div class="patentes">
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Primeiro-Tenente.gif" onclick="pri_tenente()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>1°TENENTE</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Segundo-Tenente.gif" onclick="seg_tenente()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>2°TENENTE</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Aspirante.png" onclick="aspirante()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>ASPIRANTE OFICIAL</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--GRADUADOS-->
+
+            <div class="tabela-titulo">
+                <h2>GRADUADOS</h2>
+            </div>
+
+            <div class="patentes_graduados">
+                <div class="blocos">
+
+                    <div class="sotache">
+                        <img src="./img/Subtenente.png" onclick="subtenente()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>SUBTENENTE</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="soldado">
+                        <img src="./img/1_Sargento_EB.jpg" onclick="pri_sargento()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>1°SARGENTO</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="soldado">
+                        <img src="./img/2_Sargento_EB.jpg" onclick="seg_sargento()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>2°SARGENTO</span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="patentes">
+
+                <div class="blocos s1">
+
+                    <div class="soldado">
+                        <img src="./img/3_Sargento_EB.jpg" onclick="ter_sargento()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>3°SARGENTO</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+
+                    <div class="soldado">
+                        <img src="./img/Cabo_do_Exercito_Brasileiro.jpg" onclick="cabo()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>CABO</span>
+                    </div>
+                </div>
+
+                <div class="blocos">
+
+                    <div class="soldado">
+                        <img src="./img/Soldado_EB.png" onclick="soldado()" alt="">
+                    </div>
+                    <div class="desc">
+                        <span>SOLDADO DE 1°CLASSE</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function marechal() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function general_exercito() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function general_divisao() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function general_brigada() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function coronel() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function tenente_coronel() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function major() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function capitao() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function pri_tenente() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function seg_tenente() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function aspirante() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function subtenente() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function pri_sargento() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            imageWidth: '128',
+            imageHeight: '150',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function seg_sargento() {
+
+        Swal.fire({
+            imageUrl: './img/Marechal (1).gif',
+            title: 'MARECHAL',
+            imageWidth: '128',
+            imageHeight: '150',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function ter_sargento() {
+
+        Swal.fire({
+            imageUrl: './img/3_Sargento_EB.jpg',
+            title: 'MARECHAL',
+            imageWidth: '128',
+            imageHeight: '150',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function cabo() {
+
+        Swal.fire({
+            imageUrl: './img/Cabo_do_Exercito_Brasileiro.jpg',
+            title: 'MARECHAL',
+            imageWidth: '128',
+            imageHeight: '150',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+    function soldado() {
+
+        Swal.fire({
+            imageUrl: './img/Soldado_EB.png',
+            title: 'MARECHAL',
+            imageWidth: '128',
+            imageHeight: '150',
+            text: 'Patente mais alta na hierarquia militar. De acordo com a lei em vigor, para o militar receber o posto é necessário observar uma série de condições especiais, como o fato de o país estar em guerra.',
+            background: 'white',
+        })
+    }
+
+</script>

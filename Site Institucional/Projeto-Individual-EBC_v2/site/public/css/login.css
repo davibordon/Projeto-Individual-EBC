@@ -1,0 +1,199 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../assets/img/camuflado.jpeg);   
+    background-size: cover;
+}
+
+/* Fundo da Tela home*/
+
+.fundo {
+    margin: 0;
+    /* border: 3px solid red; */
+
+}
+
+/* Header contendo o container com o titulo + navBar*/
+
+.header {
+    display: flex;
+    border-bottom: solid 3px darkgreen;
+    color: white;
+    background-color: black;
+    height: 100%;
+    opacity: 0.7;
+
+    margin-bottom: 32px;
+
+    /* border: 3px solid blue; */
+    
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    /* border: 3px solid purple; */
+
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+
+    /* border: 3px solid blue; */
+}
+
+.titulo img{
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    opacity: 1;
+}
+
+/* navBar contendo Home História e Características*/
+
+.navBar {
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    width: 560px;
+    justify-content: space-around;
+
+    /* border: 3px solid aqua; */
+
+}
+
+.navBar a, .register a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 2 parte da navBar contendo o register(login + cadastro)*/
+
+.register {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    width: 400px;
+    list-style: none;
+    justify-content: space-evenly;
+
+    /* border: 3px solid darkred; */
+}
+
+.register-cadastrar, .register-cadastrar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: white;
+    width: 120px;
+    height: 40px;
+}
+
+.register-cadastrar:hover, .register-login:hover{
+    opacity: 0.7;
+}
+
+/* meio com login */
+
+
+.login-container {
+    width: 100vw;
+    justify-content: center;
+    display: flex;
+}
+
+.login{
+    font-size: 20px;
+    background-color: black;
+    opacity: 0.7;
+    color: white;
+    align-items: center;
+    border-radius: 24px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.box_login {
+    height: 350px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: medium;
+    font-weight: bold;
+}
+
+.ipt {
+    display: flex;
+    border-radius: 24px;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    width: 320px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.login a {
+    text-decoration: underline;
+    color: white;
+}
+
+#mensagem_erro {
+    color:#E3101F;
+    font-size: small;
+}
+
+.btn_acessar{
+    padding: 10px;
+    padding-right: 18px;
+    padding-left: 18px;
+    border-radius: 24px;
+    font-size: 20px;
+    margin-top: 30px;
+    border: none;
+    justify-items: center;
+    
+}
+
+.btn_acessar:hover {
+    background-color: darkgreen;
+    color: white;
+    cursor: pointer;
+}
+
+.box {
+    margin-top: 30px;
+    height: 50%;
+    text-align: center;
+}
+
+/* LOGIN - FIM */
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    color: #fff;
+    font-size: 1em;
+    background-color: darkgreen;
+}
+
+.msg_erro_login {
+    color: red;
+    font-size: 15px;
+    opacity: 1;
+}

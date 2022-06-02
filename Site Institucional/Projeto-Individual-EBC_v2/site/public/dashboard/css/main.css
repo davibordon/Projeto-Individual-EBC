@@ -1,0 +1,135 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    /* border: 3px solid red; */
+    
+}
+ 
+
+/* HEADER - COMEÇO */
+
+.fundo {
+    margin: auto;
+    background-image: url(../img/camuflado.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: px;
+    /* border: 3px solid purple; */
+}
+
+.fundo-quiz{
+    margin: auto;
+    width: 100%;
+    height: px;
+    /* border: 3px solid purple; */
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    border-bottom: solid 3px darkgreen;
+
+    color: white;
+    background-color: black;
+    height: 100%;
+    opacity: 0.7;
+
+}
+
+.header .container{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    
+    /* border: 3px solid blue; */
+}
+
+.titulo img{
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    opacity: 1;
+}
+
+.navBar {
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    width: 650px;
+    justify-content: space-around;
+
+    /* border: 3px solid aqua; */
+}
+
+.navBar a, .register a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 2 parte da navBar contendo o register(login + cadastro)*/
+
+.register {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    width: 300px;
+    list-style: none;
+    justify-content: space-evenly;
+
+    /* border: 3px solid darkred; */
+}
+
+.cadastrar, .cadastrar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: white;
+    width: 80px;
+    height: 40px;
+}
+
+.cadastrar:hover, .meio-texto:hover, .login:hover{
+    opacity: 0.7;
+}
+
+.aqui {
+    text-decoration: underline;
+}
+
+/* fim Header */
+
+/* SCROLL BAR - COMEÇO */
+
+::-webkit-scrollbar-track {
+    background-color: whitesmoke;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: darkgreen;
+}
