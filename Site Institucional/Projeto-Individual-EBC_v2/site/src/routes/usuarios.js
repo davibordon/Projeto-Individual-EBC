@@ -16,4 +16,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/registrarPontos", function (req, res) {
+    usuarioController.registrarPontos(req, res);
+});
+
 module.exports = router;

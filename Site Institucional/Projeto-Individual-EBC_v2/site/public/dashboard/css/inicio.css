@@ -1,10 +1,12 @@
 /* BANNER */
 
+
 div.banner {
     margin-top: 25px;
     width: 100%;
     display: flex;
     justify-content: center;
+
 }
 
 .container-banner {
@@ -12,9 +14,14 @@ div.banner {
     width: 80%;
     height: 350px;
     margin-bottom: 60px;
-    
-    background-color: darkolivegreen;
+    color: #f1f1f1;
+    border-radius: 24px;
+    background-color: rgba(0,0,0, 0.85);
 
+}
+
+.img{
+    opacity: 1;
 }
 
 .box1 {
@@ -44,25 +51,37 @@ div.banner {
     display: flex;
     justify-content: center;
     width: 100%;
+
 }
 
 .container-grafico {
     width: 80%;
-    height: 300px;
+    margin-bottom: 34px;
     
-    background-color: darkolivegreen;
+    border-radius: 24px;
+    border: solid 1px black;
+    background-color: white;
+    
 }
 
 .titulo-grafico {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #f1f1f1;
+    background-color: black;
+    opacity: 0.85;
+    border-top-left-radius: 24px;
+    border-top-right-radius:24px ;
+    
     border-bottom: solid 2px black;
-
 }
 
 .grafico {
     display: flex;
-    justify-content: center;
-    height: fit-content;
-
-    border: solid 3px black;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    padding: 24px;
 }

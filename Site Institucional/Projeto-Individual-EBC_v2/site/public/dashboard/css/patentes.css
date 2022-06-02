@@ -16,6 +16,7 @@ body {
     justify-content: center;
     background-color: whitesmoke;
     
+    border-radius: 50px;
     border: solid 3px darkgreen;
 
     margin-bottom: 24px;
@@ -39,7 +40,10 @@ body {
     justify-content: space-evenly;
     
     border-bottom: 2px solid black;
-    
+}
+
+.iniciante {
+    border: 0 solid ;
 }
 
 .patentes_graduados {

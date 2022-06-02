@@ -281,17 +281,18 @@
                             <input type="button" class="inp_btn" onclick="certa10()" value="19 de Abril">
                         </div>
                     </div>
+
                 </div>
-
+                
                 <!--Pergunta Tela Final-->
-
-                <div id="resultado" style="display: none;">
-
+                
+                <div id="resultado" style="display: none;" class="resultado">
+                    
                     <div class="pergunta">
                         <span>PARABENS! Você finalizou o Quiz.</span>
                     </div>
                     <div class="respostas">
-
+                        
                         <div class="resposta_esquerda">
                             <span id="acertos"></span>
                             <span id="erros"></span>
@@ -301,6 +302,7 @@
                             <span id="ponto"></span>
                         </div>
                     </div>
+                    <button onclick="registrarPontos()">Finalizar</button>
                 </div>
 
             </div>
@@ -460,6 +462,10 @@
         media.innerHTML = `Média de acertos ${ax_media}%`
         ponto.innerHTML = `Pontos recebidos: ${pontos}`
 
+        registrarPontos()
+
+
+
     }
 
     function errada10() {
@@ -474,8 +480,43 @@
         erros.innerHTML = `Quantidade de erros: ${ax_errada}`
         media.innerHTML = `Média de acertos: ${ax_media}%`
         ponto.innerHTML = `Pontos recebidos: ${pontos}`
+
+        registrarPontos()
+
     }
 
+
+    function registrarPontos() {
+
+
+        fetch("/usuarios/registrarPontos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                pontosServer:pontos,
+                idServer:sessionStorage.ID_USUARIO
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert(`OK`)
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        
+        
+    }
 
 
 

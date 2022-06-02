@@ -22,7 +22,18 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucao);
 }
 
+function registrarPontos(id, pontos) {
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO Quiz (pontos, fkUsuario) VALUES ('${pontos}', '${id}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
+    registrarPontos
 };

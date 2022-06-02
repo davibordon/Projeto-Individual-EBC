@@ -59,7 +59,7 @@ body {
 .btn-quiz{
     padding: 10px;
     text-decoration: none;
-    background-color: white;
+    background-color: whitesmoke;
     color: black;
     width: 200px;
     height: 40px;
@@ -68,7 +68,11 @@ body {
     justify-content: center;
     border-radius: 24px;
     display: flex;
+}
 
+.btn-quiz:hover {
+    opacity: 0.85;
+    cursor: pointer;
 }
 
 .cadastro:hover {
@@ -84,6 +88,7 @@ body {
     justify-content: center;
     text-align: center;
     padding-top: 40px;
+    margin-bottom: 24px;
 }
 
 .myChart {
@@ -115,9 +120,22 @@ body {
     padding: 20px;
     height: 100px;
     font-size: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     font-weight: bold;
   
+}
+
+.resultado {
+    margin-bottom: 24px;
+}
+
+.resultado button {
+    border-radius: 24px;
+    width: 130px;
+    height: 35px;
+    background-color: darkgreen;
+    color: white;
+    
 }
 
 
@@ -147,10 +165,6 @@ input {
 .resposta_direita {
     display: grid;
     width: 45%;
-
-
-
-    
 }
 
 .inp_btn {

@@ -15,59 +15,57 @@
 <body onload="validarSessao()">
 
     <!-- HEADER -->
-
     <div class="fundo">
-        <div class="header">
-            <div class="container">
-                <div class="titulo">
-                    <img src="img/military-hat.png">
-                    <h1>EBC</h1>
-                </div>
-
-                <ul class="navBar">
-                    <li class="aqui">
-                        <a href="inicio.html">
+            <div class="header">
+                <div class="container">
+                    <div class="titulo">
+                        <img src="img/military-hat.png">
+                        <h1>EBC</h1>
+                    </div>
+                    
+                    <ul class="navBar">
+                        <li class="aqui">
+                            <a href="inicio.html">
                             Início
                         </a>
                     </li>
-
+                    
                     <li>
                         <a href="patentes.html">
                             Patentes
                         </a>
                     </li>
-
+                    
                     <li>
                         <a href="quiz.html">
                             Quiz
                         </a>
                     </li>
                 </ul>
-
+                
                 <ul class="register">
                     <li class="hello">
                         <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                     </li>
-
-
+                    
+                    
                     <li class="cadastrar">
                         <a href="cadastro.html">
                             SAIR
                         </a>
                     </li>
                 </ul>
-
+                
             </div>
         </div>
-    </div>
-
-    <!-- Banner -->
-
-    <div class="banner">
-
-        <div class="container-banner">
+        
+        <!-- Banner -->
+        
+        <div class="banner">
+            
+            <div class="container-banner">
             <div class="box1">
-                <img src="./img/Coronel.png" alt="">
+                <img class="img" src="./img/Coronel.png" alt="">
                 <h3>CORONEL</h3>
             </div>
             <div class="box2">
@@ -76,35 +74,36 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Gráfico -->
-
+    
     <div class="banner-grafico">
         <div class="container-grafico">
             <div class="titulo-grafico">
                 <h2>ÚLTIMO DESEMPENHO</h2>
             </div>
-
+            
             <div class="grafico">
-                <canvas id="myChart" style="height: 300;"></canvas>
+                <canvas id="myChart" style=" background-color: white;"></canvas>
             </div>
         </div>
     </div>
-
-
+</div>
+    
+    
 </body>
 
 </html>
 
 <script>
-
+    
     var score = 0;
     var idUsuario = sessionStorage.ID_USUARIO;
 
-
+    
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-
+    
+    
  fetch("/medidas/pegarPontos", {
         method: 'POST',
         headers: {
