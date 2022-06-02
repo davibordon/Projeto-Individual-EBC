@@ -129,13 +129,31 @@ body {
     margin-bottom: 24px;
 }
 
-.resultado button {
-    border-radius: 24px;
-    width: 130px;
-    height: 35px;
-    background-color: darkgreen;
-    color: white;
+.finalizar {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 30px;
     
+}
+
+.finalizar a{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: darkgreen;    
+    text-decoration: none;
+    color: white;
+    width: 150px;
+    height: 35px;
+    border-radius: 24px;
+    border: solid 1px black;
+}
+
+.finalizar a:hover{
+    cursor: pointer;
+    opacity: 0.85;
 }
 
 
@@ -149,6 +167,7 @@ input {
     display: flex;
     justify-items: center;
     justify-content: space-around;
+    font-size: 20px;
 
 }
 
