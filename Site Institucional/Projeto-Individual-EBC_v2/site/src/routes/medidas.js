@@ -8,4 +8,9 @@ router.post("/pegarPontos", function (req, res) {
     medidaController.pegarPontosController(req, res);
 });
 
+router.post("/pegarUltimosPontos", function (req, res) {
+    console.log('Chegou na rota!')
+    medidaController.pegarUltimosPontosController(req, res);
+});
+
 module.exports = router;

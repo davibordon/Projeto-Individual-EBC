@@ -12,7 +12,8 @@ create table Quiz (
 	idPartida int primary key auto_increment,
     pontos int,
     fkUsuario int,
-    foreign key (fkUsuario) references usuario (id)
+    foreign key (fkUsuario) references usuario (id),
+    horaPartida datetime
 )auto_increment 500;
 
 insert into usuario values
@@ -20,7 +21,14 @@ insert into usuario values
 	(null, 'Thiago', 'thiago@email.com', 123);
     
 insert into Quiz values
-	(null, 2200, 1),
-	(null, 3000, 2);
+	(null, 20, 1, now()),
+	(null, 30, 2, now());
     
+    
+
+
+select * from Quiz;
+select * from usuario;
 select id, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id;
+
+select id, idPartida, pontos, horaPartida from usuario join Quiz on fkUsuario = id and id = 3 order by idPartida desc limit 5;

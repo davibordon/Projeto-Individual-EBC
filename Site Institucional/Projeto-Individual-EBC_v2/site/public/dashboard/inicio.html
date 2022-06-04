@@ -17,93 +17,89 @@
 
     <!-- HEADER -->
     <div class="fundo">
-            <div class="header">
-                <div class="container">
-                    <div class="titulo">
-                        <img src="img/military-hat.png">
-                        <h1>EBC</h1>
-                    </div>
-                    
-                    <ul class="navBar">
-                        <li class="aqui">
-                            <a href="inicio.html">
+        <div class="header">
+            <div class="container">
+                <div class="titulo">
+                    <img src="img/military-hat.png">
+                    <h1>EBC</h1>
+                </div>
+
+                <ul class="navBar">
+                    <li class="aqui">
+                        <a href="inicio.html">
                             Início
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="patentes.html">
                             Patentes
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="quiz.html">
                             Quiz
                         </a>
                     </li>
                 </ul>
-                
+
                 <ul class="register">
-                    <li class="hello">
-                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-                    </li>
-                    
-                    
                     <li class="cadastrar">
                         <span type="button" onclick="limparSessao()">SAIR</span>
                     </li>
                 </ul>
-                
+
             </div>
         </div>
-        
+
         <!-- Banner -->
-        
+
         <div class="banner">
-            
+
             <div class="container-banner">
-            <div class="box1">
-                <img class="img" src="./img/Coronel.png" alt="">
-                <h3>CORONEL</h3>
+                <div class="box1">
+                    <h1><span id="b_usuario">usuário</span></h1>
+                    <h3>Score: <span id="valor">0</span></h3>
+                </div>
+                <div class="separacao"></div>
+                <div class="box2">
+                    <img class="img" src="./img/soldado.png" alt="">
+                    <h3>SOLDADO</h3>
+                </div>
             </div>
-            <div class="box2">
-                <h1>Olá, Davi Bordon Silva</h1>
-                <h3>Score: <span id="valor"></span></h3>
+        </div>
+
+        <!-- Gráfico -->
+
+        <div class="banner-grafico">
+            <div class="container-grafico">
+                <div class="titulo-grafico">
+                    <h2>ÚLTIMOS DESEMPENHOS</h2>
+                </div>
+
+                <div class="grafico">
+                    <canvas id="myChart" width="400" height="210"></canvas>
+                </div>
             </div>
         </div>
     </div>
-    
-    <!-- Gráfico -->
-    
-    <div class="banner-grafico">
-        <div class="container-grafico">
-            <div class="titulo-grafico">
-                <h2>ÚLTIMO DESEMPENHO</h2>
-            </div>
-            
-            <div class="grafico">
-                <canvas id="myChart" style=" background-color: white;"></canvas>
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
+
+
 </body>
 
 </html>
 
 <script>
-    
+
     var score = 0;
     var idUsuario = sessionStorage.ID_USUARIO;
 
-    
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    
-    
- fetch("/medidas/pegarPontos", {
+
+
+    fetch("/medidas/pegarPontos", {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -117,41 +113,104 @@
                 console.log(json[0].Pontos);
                 score = json[0].Pontos;
                 valor.innerHTML = `${score}`
-
-                 gerarGrafico(); 
             })
         }
     })
 
+    fetch("/medidas/pegarUltimosPontos", {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuario: idUsuario
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(`json`, json)
+                var vt_cores = gerarCores(json)
+                console.log(vt_cores)
 
+                var vt_pontos = []
+                var vt_hora = []
 
-     function gerarGrafico() {
-        const labels = [
-            "Pontos",
-        ];
+                for (var contar = 0; contar < json.length; contar++) {
 
+                    var pontos = json[contar].pontos
+                    var hora = new Date(json[contar].horaPartida)
+                    hora = ((hora.getDate() )) + "/" + ((hora.getMonth() + 1)) + "/" + hora.getFullYear() + " - " + hora.getHours() + ":" + hora.getMinutes();
+                    vt_pontos.push(pontos)
+                    vt_hora.push(hora)
 
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Rendimento',
-                backgroundColor: 'rgb(255, 0, 0)',
-                borderColor: 'rgb(255, 0, 0)',
-                data: [score],
-            },
-            ]
-        };
+                }
 
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {}
-        };
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
+                console.log(vt_hora)
+                gerarGrafico(vt_pontos, vt_cores, vt_hora)
+
+            })
+        }
+    })
+
+    function gerarCores(resposta) {
+
+        var vt_cores = []
+
+        console.log(`Funfa n`)
+
+        for (var ax_contar = 0; ax_contar < resposta.length; ax_contar++) {
+
+            var linha = resposta[ax_contar].pontos
+            console.log(linha)
+
+            if (linha > 70) {
+                vt_cores.push(`rgba(46, 204, 113, 1)`)
+
+            } else if (linha >= 50 && linha <= 70) {
+                vt_cores.push('rgba(255, 206, 86, 1)')
+
+            } else {
+                vt_cores.push('rgba(255, 99, 132, 1)')
+            }
+
+        }
+
+        return vt_cores;
+
     }
+
+
+    function gerarGrafico(resposta, vt_cores, vt_hora) {
+
+        console.log(resposta)
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: vt_hora,
+                datasets: [{
+                    label: 'Pontos',
+                    data: resposta,
+                    backgroundColor: vt_cores,
+                    borderColor: vt_cores,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 100,
+                    }
+                }
+            }
+        });
+
+    }
+
+
+
 
 
 </script>

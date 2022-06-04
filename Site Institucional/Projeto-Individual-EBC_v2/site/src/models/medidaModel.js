@@ -6,7 +6,14 @@ function pegarPontosModel(idusuario) {
     return database.executar(instrucaoSql);
 }
 
+function pegarUltimosPontosModel(idusuario) {
+    instrucaoSql = `select id, idPartida, pontos, horaPartida from usuario join Quiz on fkUsuario = id and id = ${idusuario} order by idPartida desc limit 5;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
-    pegarPontosModel
+    pegarPontosModel,
+    pegarUltimosPontosModel
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/quiz.css">
     <script src="../js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
 
@@ -44,11 +45,6 @@
                 </ul>
 
                 <ul class="register">
-                    <li class="hello">
-                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-                    </li>
-
-
                     <li class="cadastrar">
                         <a href="cadastro.html">
                             SAIR
@@ -80,9 +76,9 @@
 
     <div id="meio2" style="display: none;">
         <div class="container-quiz">
-            <div class="myChart">
+            <div class="quiz">
                 <div class="titulo">
-                    <h1>Quiz</h1>
+                    <h1 id="titulo_quiz">Quiz</h1>
                 </div>
 
                 <!--Pergunta 1-->
@@ -294,22 +290,24 @@
 
                 <div id="resultado" style="display: none;" class="resultado">
 
-                    <div class="pergunta">
-                        <span>PARABENS! Você finalizou o Quiz.</span>
+                    <div class="metricas">
+                        <div class="dados">
+                            <div class="media">
+                                <span>Média de acertos:</span>
+                                <span id="media">30%</span>
+                            </div>
+                            <div class="pontos">
+                                <span>Pontos recebidos</span>
+                                <span id="pontos">30</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="respostas">
-
-                        <div class="resposta_esquerda">
-                            <span id="acertos"></span>
-                            <span id="erros"></span>
-                        </div>
-                        <div class="resposta_direita">
-                            <span id="media"></span>
-                            <span id="ponto"></span>
-                        </div>
+                    <div class="separacao"></div>
+                    <div class="grafico">
+                        <canvas id="myChart" width="400" height="400"></canvas>
                     </div>
                     <div class="finalizar">
-                        <a href="inicio.html">Finalizar</a>
+                        <a href="inicio.html">VOLTAR</a>
                     </div>
                 </div>
 
@@ -324,17 +322,15 @@
 
 <script>
 
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    
     var ax_certa = 0
     var ax_errada = 0
     var ax_media = 0
     var pontos = 0
 
     var vt_respostas = []
-  
-    
+
+
     function certa1() {
         caixa1.style.display = `none`
         caixa2.style.display = `block`
@@ -509,10 +505,6 @@
         ax_media = (ax_certa / 10) * 100
         pontos = ax_certa * 10
 
-        acertos.innerHTML = `Quantidade de acertos: ${ax_certa}`
-        erros.innerHTML = `Quantidade de erros: ${ax_errada}`
-        media.innerHTML = `Média de acertos ${ax_media}%`
-        ponto.innerHTML = `Pontos recebidos: ${pontos}`
 
         registrarPontos()
 
@@ -525,15 +517,13 @@
         resultado.style.display = `block`
         ax_errada++;
 
+        titulo_quiz.innerHTML = `RESULTADO`
+
         vt_respostas.push(0)
 
         ax_media = (ax_certa / 10) * 100
         pontos = ax_certa * 10
 
-        acertos.innerHTML = `Quantidade de acertos: ${ax_certa}`
-        erros.innerHTML = `Quantidade de erros: ${ax_errada}`
-        media.innerHTML = `Média de acertos: ${ax_media}%`
-        ponto.innerHTML = `Pontos recebidos: ${pontos}`
 
         registrarPontos()
 
@@ -568,8 +558,44 @@
             console.log(`#ERRO: ${resposta}`);
         });
 
+        gerarGrafico()
+
+    }
+
+    function gerarGrafico() {
+        const labels = [
+            "Acertos",
+        ];
 
 
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Desemprenho',
+                backgroundColor: 'rgb(255, 0, 0)',
+                borderColor: 'rgb(255, 0, 0)',
+                data: [ax_certa],
+            },
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 10,
+                    }
+                }
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
     }
 
 

@@ -26,7 +26,7 @@ function registrarPontos(id, pontos) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO Quiz (pontos, fkUsuario) VALUES ('${pontos}', '${id}');
+        INSERT INTO Quiz (pontos, fkUsuario, horaPartida) VALUES ('${pontos}', '${id}', now());
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
