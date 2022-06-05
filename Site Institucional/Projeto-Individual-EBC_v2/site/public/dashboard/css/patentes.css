@@ -84,12 +84,23 @@ body {
     font-weight: bold;
 }
 
+.tabela img:hover {
+    cursor: pointer;
+}
+
+/* SweetAlert*/
+
 .swal2-image {
     width: 211px;
     height: 134px;
     margin: 2em auto 1em;
 }
 
-.tabela img:hover {
-    cursor: pointer;
+.swal2-container.swal2-center>.swal2-popup .swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: darkgreen;
+    color: whitesmoke;
+    font-size: 1em;
 }

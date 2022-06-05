@@ -45,11 +45,11 @@
                 </ul>
 
                 <ul class="register">
-                    <li class="cadastrar">
-                        <span type="button" onclick="limparSessao()">SAIR</span>
+                    <li class="sair">
+                        <span type="button" class="sair" onclick="limparSessao()">SAIR</span>
                     </li>
                 </ul>
-
+                
             </div>
         </div>
 
@@ -64,8 +64,8 @@
                 </div>
                 <div class="separacao"></div>
                 <div class="box2">
-                    <img class="img" src="./img/soldado.png" alt="">
-                    <h3>SOLDADO</h3>
+                    <img class="img" id="img" src="" alt="">
+                    <h3 id="desig">SOLDADO</h3>
                 </div>
             </div>
         </div>
@@ -108,11 +108,13 @@
             idUsuario: idUsuario
         })
     }).then(function (resposta) {
-        if (resposta.ok) {
+        if (resposta.status == 200) {
             resposta.json().then(json => {
                 console.log(json[0].Pontos);
                 score = json[0].Pontos;
                 valor.innerHTML = `${score}`
+
+                trocarPatente(score)
             })
         }
     })
@@ -126,29 +128,40 @@
             idUsuario: idUsuario
         })
     }).then(function (resposta) {
-        if (resposta.ok) {
-            resposta.json().then(json => {
-                console.log(`json`, json)
-                var vt_cores = gerarCores(json)
-                console.log(vt_cores)
+        console.log(resposta)
+        if (resposta.status == 200) {
+            if(resposta.ok) {
 
-                var vt_pontos = []
+                resposta.json().then(json => {
+                    console.log(`json`, json)
+                    var vt_cores = gerarCores(json)
+                    console.log(vt_cores) 
+                    
+                    var vt_pontos = []
                 var vt_hora = []
 
                 for (var contar = 0; contar < json.length; contar++) {
-
+                    console.log(`Aqui!`, json[contar].pontos)
                     var pontos = json[contar].pontos
                     var hora = new Date(json[contar].horaPartida)
                     hora = ((hora.getDate() )) + "/" + ((hora.getMonth() + 1)) + "/" + hora.getFullYear() + " - " + hora.getHours() + ":" + hora.getMinutes();
                     vt_pontos.push(pontos)
                     vt_hora.push(hora)
-
+                    
+                    
                 }
+                    console.log(vt_hora)
+                    gerarGrafico(vt_pontos, vt_cores, vt_hora)
+                    
+                })
+            } 
+        } else {
+            vt_pontos = [0, 0 ,0 ,0 ,0]
+            vt_cores = [`#fff`, `#fff`, `#fff`, `#fff`, `#fff`]
+            vt_hora = [`-`, `-`, `-`, `-`, `-`]
+            console.log(`Nenhum Resultado Encontrado ou Erro`)
 
-                console.log(vt_hora)
-                gerarGrafico(vt_pontos, vt_cores, vt_hora)
-
-            })
+            gerarGrafico(vt_pontos, vt_cores, vt_hora)
         }
     })
 
@@ -182,7 +195,9 @@
 
     function gerarGrafico(resposta, vt_cores, vt_hora) {
 
-        console.log(resposta)
+        console.log(`dasdsad`, resposta)
+
+
 
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
@@ -209,8 +224,78 @@
 
     }
 
+    function trocarPatente(score) {
+        
+        
+        if(score < 100 ){
+        img.src = `./img/soldado.png`
+        desig.innerHTML = `SOLDADO`
+        
+    } else if(score < 200){
+        img.src = `./img/cabo.png`
+        desig.innerHTML = `CABO`
+        
+    } else if(score < 300){
+        img.src = `./img/3_sargento.png`
+        desig.innerHTML = `3°SARGENTO`
+        
+    } else if(score < 400){
+        img.src = `./img/2_sargento.png`
+        desig.innerHTML = `2°SARGENTO`
+        
+    } else if(score < 500){
+        img.src = `./img/1_sargento.png`
+        desig.innerHTML = `1°SARGENTO`
+        
+    } else if(score < 600){
+        img.src = `./img/subtenente.png`
+        desig.innerHTML = `SUBTENENTE`
+        
+    } else if(score < 800){
+        img.src = `./img/Aspirante.png`
+        desig.innerHTML = `ASPIRANTE`
+        
+    }else if(score < 1000){
+        img.src = `./img/2_tenente.gif`
+        desig.innerHTML = `2°TENENTE`
+        
+    } else if(score < 1200){
+        img.src = `./img/1_tenente.gif`
+        desig.innerHTML = `1°TENENTE`
+        
+    } else if(score < 1400){
+        img.src = `./img/capitao.png`
+        desig.innerHTML = `CAPITÃO`
+        
+    } else if(score < 1600){
+        img.src = `./img/major.gif`
+        desig.innerHTML = `MAJOR`
+        
+    } else if(score < 1800){
+        img.src = `./img/tenente_coronel.gif`
+        desig.innerHTML = `TENENTE-CORONEL`
+        
+    } else if(score < 2000){
+        img.src = `./img/coronel.png`
+        desig.innerHTML = `CORONEL`
+        
+    } else if(score < 2400){
+        img.src = `./img/general_brigada.gif`
+        desig.innerHTML = `GENERAL DE BRIGADA`
+        
+    } else if(score < 2800){
+        img.src = `./img/general_divisao.gif`
+        desig.innerHTML = `GENERAL DE DIVISÃO`
+        
+    } else if(score < 3200){
+        img.src = `./img/general_exercito.gif`
+        desig.innerHTML = `GENERAL DE EXÉRCITO`
 
-
-
+    } else if(score < 4000){
+        img.src = `./img/marechal.gif`
+        desig.innerHTML = `MARECHAL`
+    } 
+    
+}
 
 </script>

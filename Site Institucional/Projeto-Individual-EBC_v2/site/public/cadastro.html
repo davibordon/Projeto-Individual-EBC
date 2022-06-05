@@ -69,10 +69,10 @@
             </div>
         </div>
 
-       
-         <!-- BANNER -->
 
-         <div class="banner_cadastro">
+        <!-- BANNER -->
+
+        <div class="banner_cadastro">
             <div class="container">
 
                 <div class="cadastro">
@@ -101,7 +101,8 @@
                             </div>
                             Confirmar Senha
                             <div class="campo">
-                                <input id="confirmacao_senha_input" class="ipt" type="password" placeholder="**********">
+                                <input id="confirmacao_senha_input" class="ipt" type="password"
+                                    placeholder="**********">
                             </div>
                         </div>
                     </div>
@@ -148,6 +149,18 @@
             return false;
         }
 
+        if (emailVar.startsWith(`@`) && emailVar.endsWith(`@`)) {
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Preencha o Email corretamente!',
+                background: 'white',
+            })
+
+            return false;
+        }
+
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -168,15 +181,15 @@
             if (resposta.ok) {
 
                 Swal.fire({
-                icon: 'success',
-                title: 'Cadastrado',
-                text: 'Usuário cadastrado com sucesso!',
-            })
+                    icon: 'success',
+                    title: 'Cadastrado',
+                    text: 'Usuário cadastrado com sucesso!',
+                })
 
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
-                
+
                 limparFormulario();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");

@@ -29,6 +29,14 @@ insert into Quiz values
 
 select * from Quiz;
 select * from usuario;
+
 select id, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id;
 
 select id, idPartida, pontos, horaPartida from usuario join Quiz on fkUsuario = id and id = 3 order by idPartida desc limit 5;
+
+
+select id, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id;
+
+select id, sum(pontos) from usuario join Quiz on fkUsuario = id order by pontos limit 5;
+
+select * from (select id, nome, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id) as rankin order by pontos desc limit 5;

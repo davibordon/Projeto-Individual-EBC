@@ -12,8 +12,16 @@ function pegarUltimosPontosModel(idusuario) {
     return database.executar(instrucaoSql);
 }
 
+function pegarRankUsuariosModel() {
+    instrucaoSql = `select * from (select id, nome, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id) as rankin order by pontos desc limit 5;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     pegarPontosModel,
-    pegarUltimosPontosModel
+    pegarUltimosPontosModel,
+    pegarRankUsuariosModel
 }

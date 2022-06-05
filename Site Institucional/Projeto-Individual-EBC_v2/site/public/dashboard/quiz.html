@@ -45,10 +45,8 @@
                 </ul>
 
                 <ul class="register">
-                    <li class="cadastrar">
-                        <a href="cadastro.html">
-                            SAIR
-                        </a>
+                    <li class="sair">
+                        <span type="button" class="sair" onclick="limparSessao()">SAIR</span>
                     </li>
                 </ul>
 
@@ -61,7 +59,7 @@
 
         <div class="meio">
             <div class="container-meio">
-                <span>RESPONDA CORRETAMENTE E UPE SUA PATENTE</span>
+                <span>RESPONDA CORRETAMENTE E SUBA SUA PATENTE</span>
             </div>
 
             <div class="meio-texto">
@@ -74,6 +72,7 @@
         </div>
     </div>
 
+    <!--Aqui está todo o Quiz-->
     <div id="meio2" style="display: none;">
         <div class="container-quiz">
             <div class="quiz">
@@ -289,22 +288,27 @@
                 <!--Pergunta Tela Final-->
 
                 <div id="resultado" style="display: none;" class="resultado">
-
                     <div class="metricas">
-                        <div class="dados">
-                            <div class="media">
-                                <span>Média de acertos:</span>
-                                <span id="media">30%</span>
-                            </div>
-                            <div class="pontos">
-                                <span>Pontos recebidos</span>
-                                <span id="pontos">30</span>
-                            </div>
+                        <h2>Parabens! Você finalizou o Quiz</h2>
+                        <div class="pontos">
+                            <h3>Pontos recebidos:</h3>
+                            <h3>30</h3>
                         </div>
                     </div>
-                    <div class="separacao"></div>
+
+
+                    <div class="finalizar">
+                        <a href="inicio.html">VOLTAR</a>
+                        <span class="button" onclick="rank()">VER RANKING</span>
+                    </div>
+                </div>
+
+
+                <!--RANK-->
+
+                <div id="meio3" style="display: none;" class="meio3">                            
                     <div class="grafico">
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                        <canvas id="myChart" width="400" height="210"></canvas>
                     </div>
                     <div class="finalizar">
                         <a href="inicio.html">VOLTAR</a>
@@ -324,212 +328,163 @@
 
 
     var ax_certa = 0
-    var ax_errada = 0
-    var ax_media = 0
     var pontos = 0
 
-    var vt_respostas = []
 
+    function comecar_quiz() {
+        
+        Swal.fire({
+            imageUrl: './img/2_tenente.gif',
+            title: '2°TENENTE',
+            html: '<span>Na hierarquia militar, Segundo-Tenente é o posto inicial do oficialato, fazendo parte do círculo dos oficiais subalternos no Brasil. Situa-se entre os postos de Aspirante e Primeiro-Tenente. A função do 2° Tenente é comandar um Pelotão. <br><br> <b>Salário: R$ 7.082,00</b></span>',
+            background: 'white',
+        })
+        
+        meio1.style.display = `none`
+        meio2.style.display = `block`
+        titulo_quiz.innerHTML = `Pergunta 1 de 10`
+
+    }
+    
 
     function certa1() {
         caixa1.style.display = `none`
         caixa2.style.display = `block`
-
-        vt_respostas.push(1);
-
+        titulo_quiz.innerHTML = `Pergunta 2 de 10`
         ax_certa++;
-
     }
 
     function errada1() {
         caixa1.style.display = `none`
         caixa2.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
-
+        titulo_quiz.innerHTML = `Pergunta 2 de 10`
     }
 
     function certa2() {
         caixa2.style.display = `none`
         caixa3.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 3 de 10`
         ax_certa++;
-
-        vt_respostas.push(1)
     }
 
     function errada2() {
         caixa2.style.display = `none`
         caixa3.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 3 de 10`
     }
 
     function certa3() {
         caixa3.style.display = `none`
         caixa4.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 4 de 10`
         ax_certa++;
-
-        vt_respostas.push(1)
     }
 
     function errada3() {
         caixa3.style.display = `none`
         caixa4.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 4 de 10`
     }
 
     function certa4() {
         caixa4.style.display = `none`
         caixa5.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 5 de 10`
         ax_certa++;
-
-        vt_respostas.push(1)
     }
 
     function errada4() {
         caixa4.style.display = `none`
         caixa5.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 5 de 10`
     }
 
     function certa5() {
         caixa5.style.display = `none`
         caixa6.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 6 de 10`
         ax_certa++;
-
-        vt_respostas.push(1)
     }
 
     function errada5() {
         caixa5.style.display = `none`
         caixa6.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 6 de 10`
     }
 
     function certa6() {
         caixa6.style.display = `none`
         caixa7.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 7 de 10`
         ax_certa++;
-
-        vt_respostas.push(1)
     }
 
     function errada6() {
         caixa6.style.display = `none`
         caixa7.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 7 de 10`
     }
 
     function certa7() {
         caixa7.style.display = `none`
         caixa8.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 8 de 10`
         ax_certa++;
-
-        vt_respostas.push(`certa`)
     }
 
     function errada7() {
         caixa7.style.display = `none`
         caixa8.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 8 de 10`
     }
 
     function certa8() {
         caixa8.style.display = `none`
         caixa9.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 9 de 10`
         ax_certa++;
-
-        vt_respostas.push(1)
     }
 
     function errada8() {
         caixa8.style.display = `none`
         caixa9.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 9 de 10`
     }
 
     function certa9() {
         caixa9.style.display = `none`
         caixa10.style.display = `block`
-
+        titulo_quiz.innerHTML = `Pergunta 10 de 10`
         ax_certa++;
-
-        vt_respostas.push(1)
     }
 
     function errada9() {
         caixa9.style.display = `none`
         caixa10.style.display = `block`
-
-        ax_errada++
-
-        vt_respostas.push(0)
+        titulo_quiz.innerHTML = `Pergunta 10 de 10`
     }
 
     function certa10() {
         caixa10.style.display = `none`
         resultado.style.display = `block`
+        titulo_quiz.innerHTML = `Resultado`
+
         ax_certa++;
-
-        vt_respostas.push(1)
-
-        ax_media = (ax_certa / 10) * 100
         pontos = ax_certa * 10
-
-
         registrarPontos()
-
-
-
     }
 
     function errada10() {
         caixa10.style.display = `none`
         resultado.style.display = `block`
-        ax_errada++;
+        titulo_quiz.innerHTML = `Resultado`
 
-        titulo_quiz.innerHTML = `RESULTADO`
-
-        vt_respostas.push(0)
-
-        ax_media = (ax_certa / 10) * 100
         pontos = ax_certa * 10
 
-
         registrarPontos()
-
     }
 
-
+    // fetch que registra os pontos ganhos do Quiz no banco de dados
     function registrarPontos() {
 
 
@@ -558,44 +513,78 @@
             console.log(`#ERRO: ${resposta}`);
         });
 
-        gerarGrafico()
-
     }
 
-    function gerarGrafico() {
-        const labels = [
-            "Acertos",
-        ];
+    function rank() {
+        
+        
+        fetch("/medidas/pegarRankUsuarios", {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(`json`, json)
+
+                var vt_rankPontos = []
+                var vt_rankNome = []
 
 
+                for (var ax_contador = 0; ax_contador < json.length; ax_contador++) {
+                    
+                    var rankPontos = json[ax_contador].pontos
+                    var rankNome = json[ax_contador].nome
+                    vt_rankPontos.push(rankPontos)
+                    vt_rankNome.push(rankNome)
+
+                    console.log(vt_rankNome)
+                    console.log(vt_rankPontos)
+                }
+
+                gerarGrafico(vt_rankNome, vt_rankPontos)
+
+            })
+        }
+    })
+}
+
+    function gerarGrafico(vt_rankNome, vt_rankPontos) {
+
+        resultado.style.display = `none`
+        meio3.style.display = `block`
+        titulo_quiz.innerHTML = `Ranking de Jogadores`
+        
+        
         const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Desemprenho',
-                backgroundColor: 'rgb(255, 0, 0)',
-                borderColor: 'rgb(255, 0, 0)',
-                data: [ax_certa],
-            },
-            ]
-        };
+        labels: vt_rankNome,
+        datasets: [{
+            label: 'Pontos',
+            backgroundColor: `rgba(46, 204, 113, 1)`,
+            borderColor: `rgba(46, 204, 113, 1)`,
+            data: vt_rankPontos,
+        },
+        ]
+    };
 
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {
-                scales: {
-                    y: {
-                        min: 0,
-                        max: 10,
-                    }
+    const config = {  
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    min: 0,
                 }
             }
-        };
+        }
+    };
 
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
         );
+
     }
 
 
@@ -617,11 +606,4 @@
 
     }
     setInterval(Movercarro, 20);
-
-    function comecar_quiz() {
-
-        meio1.style.display = `none`
-        meio2.style.display = `block`
-
-    }
 </script>

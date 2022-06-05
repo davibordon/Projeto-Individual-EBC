@@ -15,10 +15,8 @@ body {
     justify-content: center;
     text-align: center;
     justify-items: center;
-    align-items: center;
     display: grid;
     margin: 0;
-    width: 100vw;
     height: 60vh;
 
     
@@ -39,6 +37,7 @@ body {
     opacity: 0.7;
     padding: 24px;
     margin-bottom: 12px;
+    border-radius: 24px;
     
 
     /* border: solid 3px black; */
@@ -48,7 +47,6 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
-    font-family: 'Raleway', sans-serif;
     color: white;
     width: 500px;
     margin-bottom: 182px;
@@ -56,29 +54,31 @@ body {
     /* border: solid 3px white; */
 }
 
-.btn-quiz{
-    padding: 10px;
+.btn-quiz, .btn-rank{
+    display: flex;
+    padding: 18px;
     text-decoration: none;
-    background-color: whitesmoke;
+    background-color: #f1f1f1f1;
     color: black;
-    width: 200px;
     height: 40px;
     font-weight: bold;
     align-items: center;
     justify-content: center;
     border-radius: 24px;
-    display: flex;
 }
 
 .btn-quiz:hover {
-    opacity: 0.85;
     cursor: pointer;
+    opacity: 0.7;
 }
 
-.cadastro:hover {
+.btn-rank:hover {
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.7;
+    
+    
 }
+
 
 
 /* Meio com as perguntas*/
@@ -125,35 +125,6 @@ body {
   
 }
 
-.finalizar {
-    justify-content: center;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    height: 30px;
-    
-}
-
-.finalizar a{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    background-color: darkgreen;    
-    text-decoration: none;
-    color: white;
-    width: 150px;
-    height: 35px;
-    border-radius: 24px;
-    border: solid 1px black;
-}
-
-.finalizar a:hover{
-    cursor: pointer;
-    opacity: 0.85;
-}
-
-
-
 input {
     width: 100px;
 }
@@ -196,29 +167,54 @@ input {
     cursor: pointer;
 }
 
-
-/* Gráficos e Dados Finais*/
-
-.resultado {
+.metricas {
+    border-bottom: solid 2px black;
+    padding-bottom: 12px;
     margin-bottom: 24px;
-    width: 80%;
 }
 
-.metricas {
-    display: flex;
-    margin-top: 32px;
 
-    margin-bottom: 32px;
+/* Resultados*/
+
+.resultado {
+    width: 100%;
+
+
+}
+
+
+.finalizar {
+    justify-content: space-evenly;
+    display: flex;
+    margin-bottom: 24px;
+    
+}
+
+.finalizar a, .finalizar span{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: darkgreen;    
+    text-decoration: none;
+    color: white;
+    width: 150px;
+    height: 35px;
+    border-radius: 24px;
+    border: solid 1px black;
+}
+
+.finalizar a:hover, .finalizar span:hover{
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+
+/* RANKING */
+
+.meio3{
+    width: 100%;
 }
 
 .grafico {
-    width: 50%;
-}
-
-.dados {
-    display: grid;
-    width: 50%;
-    justify-content: center;
-
-
+    margin: 24px;
 }

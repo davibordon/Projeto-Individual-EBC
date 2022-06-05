@@ -13,4 +13,9 @@ router.post("/pegarUltimosPontos", function (req, res) {
     medidaController.pegarUltimosPontosController(req, res);
 });
 
+router.post("/pegarRankUsuarios", function (req, res) {
+    console.log('Chegou na rota! rank')
+    medidaController.pegarRankUsuariosController(req, res);
+});
+
 module.exports = router;

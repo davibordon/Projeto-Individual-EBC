@@ -10,7 +10,8 @@ body {
     width: 80vw;
     margin: auto;
     display: flex;
-    /* border: 3px solid red; */
+    align-items: center;
+    justify-content: space-around;
     
 }
  
@@ -24,14 +25,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: px;
-    /* border: 3px solid purple; */
-}
-
-.fundo-quiz{
-    margin: auto;
-    width: 100%;
-    height: px;
     /* border: 3px solid purple; */
 }
 
@@ -49,25 +42,21 @@ body {
 }
 
 .header .container{
-    width: 95%;
-    margin: auto;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     height: 80px;
 }
 
 .titulo {
     display: flex;
     align-items: center;
-    
-    /* border: 3px solid blue; */
 }
 
 .titulo img{
     width: 60px;
     height: 60px;
     margin-right: 12px;
-    opacity: 1;
+
 }
 
 .navBar {
@@ -75,44 +64,41 @@ body {
     display: flex;
     text-decoration: none;
     list-style: none;
+    font-size: 20px;
     width: 650px;
     justify-content: space-around;
-
-    /* border: 3px solid aqua; */
 }
 
-.navBar a, .register a {
-    color: white;
+.navBar a{
+    color: #f1f1f1f1;
     font-weight: bold;
     text-decoration: none;
 }
 
-/* 2 parte da navBar contendo o register(login + cadastro)*/
-
 .register {
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-    width: 300px;
-    list-style: none;
-    justify-content: space-evenly;
-
-    /* border: 3px solid darkred; */
-}
-
-.cadastrar, .cadastrar a{
+    width: 139px;
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
     color: black;
-    background-color: white;
-    border-radius: 24px;
-    width: 80px;
-    height: 40px;
 }
 
-.cadastrar:hover, .meio-texto:hover, .login:hover{
-    opacity: 0.7;
+.sair {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    font-weight: bold;
+    background-color: #f1f1f1f1;
+
+    border-radius: 40px;
+}
+
+.sair:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 .aqui {
