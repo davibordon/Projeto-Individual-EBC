@@ -103,6 +103,7 @@ body {
     background-color: white;
     width: 150px;
     height: 40px;
+    /* border-radius: 60px; */
 }
 
 .cadastrar:hover, .meio-texto:hover, .login:hover{

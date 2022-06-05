@@ -218,3 +218,14 @@ input {
 .grafico {
     margin: 24px;
 }
+
+
+
+.swal2-container.swal2-center>.swal2-popup .swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: darkgreen;
+    color: whitesmoke;
+    font-size: 1em;
+}

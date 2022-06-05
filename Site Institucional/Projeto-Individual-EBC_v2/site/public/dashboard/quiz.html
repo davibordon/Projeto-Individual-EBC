@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/quiz.css">
+    <link rel="icon" href="./img/military-hat.png">
     <script src="../js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Document</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>EBC | Quiz</title>
 </head>
 
 <body>
@@ -292,7 +294,7 @@
                         <h2>Parabens! Você finalizou o Quiz</h2>
                         <div class="pontos">
                             <h3>Pontos recebidos:</h3>
-                            <h3>30</h3>
+                            <h3 id="valor"></h3>
                         </div>
                     </div>
 
@@ -332,12 +334,12 @@
 
 
     function comecar_quiz() {
-        
+
         Swal.fire({
-            imageUrl: './img/2_tenente.gif',
-            title: '2°TENENTE',
-            html: '<span>Na hierarquia militar, Segundo-Tenente é o posto inicial do oficialato, fazendo parte do círculo dos oficiais subalternos no Brasil. Situa-se entre os postos de Aspirante e Primeiro-Tenente. A função do 2° Tenente é comandar um Pelotão. <br><br> <b>Salário: R$ 7.082,00</b></span>',
+            html: '<h2 style="color: black;">Como Jogar!</h2><div><span>São 10 perguntas referente ao Exército Brasileiro e suas curiosidades, responda corretamente e suba sua patente com os pontos recebidos em cada partida!</span><br><br><br><br><div style="display: flex; justify-items: center; justify-content: space-between; width: 100%;"><div style="display:grid; justify-items: center; text-align: center; width: 30%;"><span style="margin-bottom: 15px;">Todos começam de baixo, apenas como um soldado</span> <img src="./img/soldado.png"  alt=""> SOLDADO </div> <div style="display:grid; justify-items: center; text-align: center; width: 30%;"><span style="margin-bottom: 15px;">Suba pelos postos de hierarquia com o seu própio esforço e mérito</span> <img src="./img/capitao.png"  alt=""> CAPITÃO </div> <div style="display:grid; justify-items: center; text-align: center; width: 30%;"><span style="margin-bottom: 15px;">Conquiste a tão sonhada patente de Marechal</span> <img src="./img/marechal.gif"  alt=""> MARECHAL </div></div> <br><br><br><span>Confira a hierarquia militar e os pontos necessários para cada posto na nossa tela de Patentes, e fique de olho no nosso ranking de jogadores <br><br> Boa Sorte!</span></div>',
             background: 'white',
+            width: '75%',
+            
         })
         
         meio1.style.display = `none`
@@ -471,6 +473,8 @@
 
         ax_certa++;
         pontos = ax_certa * 10
+
+        valor.innerHTML = pontos
         registrarPontos()
     }
 
@@ -480,6 +484,7 @@
         titulo_quiz.innerHTML = `Resultado`
 
         pontos = ax_certa * 10
+        valor.innerHTML = pontos
 
         registrarPontos()
     }

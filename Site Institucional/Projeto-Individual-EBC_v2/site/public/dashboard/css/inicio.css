@@ -80,6 +80,7 @@ div.banner {
     opacity: 0.85;
     border-top-left-radius: 24px;
     border-top-right-radius:24px ;
+    margin-bottom: 12px;
     
     border-bottom: solid 2px black;
 }
@@ -91,4 +92,28 @@ div.banner {
     align-items: center;
     width: 95%;
     padding: 24px;
+}
+
+.metricas {
+    display: flex;
+    justify-content: center;
+}
+
+.bom {
+    text-align: center;
+    width: 100px;
+    background-color: rgba(46, 204, 113, 1);
+    padding-bottom: 12px;
+}
+
+.medio {
+    text-align: center;
+    width: 100px;
+    background-color: rgba(255, 206, 86, 1);
+}
+
+.ruim {
+    text-align: center;
+    width: 100px;
+    background-color: rgba(255, 99, 132, 1);
 }

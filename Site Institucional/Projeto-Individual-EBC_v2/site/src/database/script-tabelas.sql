@@ -40,3 +40,38 @@ select id, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id grou
 select id, sum(pontos) from usuario join Quiz on fkUsuario = id order by pontos limit 5;
 
 select * from (select id, nome, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id) as rankin order by pontos desc limit 5;
+
+
+ATUALIZADO
+
+create database EBC;
+use EBC;
+
+CREATE TABLE usuario (
+	id INT PRIMARY KEY auto_increment,
+	nome VARCHAR(50),
+	email VARCHAR(50) UNIQUE,
+	senha VARCHAR(50)
+);
+
+create table Quiz (
+	idPartida int primary key auto_increment,
+    pontos int,
+    fkUsuario int,
+    foreign key (fkUsuario) references usuario (id),
+    horaPartida datetime
+)auto_increment 500;
+
+select * from Quiz;
+select * from usuario;
+
+select id, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id;
+
+select id, idPartida, pontos, horaPartida from usuario join Quiz on fkUsuario = id and id = 3 order by idPartida desc limit 5;
+
+
+select id, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id;
+
+select id, sum(pontos) from usuario join Quiz on fkUsuario = id order by pontos limit 5;
+
+select * from (select id, nome, sum(pontos) as 'pontos' from usuario join Quiz on fkUsuario = id group by id) as rankin order by pontos desc limit 5;

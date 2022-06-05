@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/inicio.css">
     <link rel="stylesheet" href="css/main.css">
+
+    <link rel="icon" href="./img/military-hat.png">
     <script src="../js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <title>Document</title>
+    <title>EBC | Inicio</title>
 </head>
 
 <body onload="validarSessao()">
@@ -49,7 +51,7 @@
                         <span type="button" class="sair" onclick="limparSessao()">SAIR</span>
                     </li>
                 </ul>
-                
+
             </div>
         </div>
 
@@ -64,7 +66,7 @@
                 </div>
                 <div class="separacao"></div>
                 <div class="box2">
-                    <img class="img" id="img" src="" alt="">
+                    <img class="img" id="img" src="./img/soldado.png" alt="">
                     <h3 id="desig">SOLDADO</h3>
                 </div>
             </div>
@@ -77,9 +79,27 @@
                 <div class="titulo-grafico">
                     <h2>ÚLTIMOS DESEMPENHOS</h2>
                 </div>
+                <div id="caixa_metrica" style="display: none;">
+
+                    <div class="metricas">
+                        <div class="bom">
+                            <h4>BOM</h4>
+                            <span>8 á 10</span>
+                        </div>
+                        <div class="medio">
+                            <h4>MÉDIO</h4>
+                            <span>5 á 7</span>
+                        </div>
+                        <div class="ruim">
+                            <h4>RUIM</h4>
+                            <span>0 á 4</span>
+                        </div>
+
+                    </div>
+                </div>
 
                 <div class="grafico">
-                    <canvas id="myChart" width="400" height="210"></canvas>
+                    <canvas id="myChart" width="400" height="190"></canvas>
                 </div>
             </div>
         </div>
@@ -130,33 +150,33 @@
     }).then(function (resposta) {
         console.log(resposta)
         if (resposta.status == 200) {
-            if(resposta.ok) {
+            if (resposta.ok) {
 
                 resposta.json().then(json => {
                     console.log(`json`, json)
                     var vt_cores = gerarCores(json)
-                    console.log(vt_cores) 
-                    
-                    var vt_pontos = []
-                var vt_hora = []
+                    console.log(vt_cores)
 
-                for (var contar = 0; contar < json.length; contar++) {
-                    console.log(`Aqui!`, json[contar].pontos)
-                    var pontos = json[contar].pontos
-                    var hora = new Date(json[contar].horaPartida)
-                    hora = ((hora.getDate() )) + "/" + ((hora.getMonth() + 1)) + "/" + hora.getFullYear() + " - " + hora.getHours() + ":" + hora.getMinutes();
-                    vt_pontos.push(pontos)
-                    vt_hora.push(hora)
-                    
-                    
-                }
+                    var vt_pontos = []
+                    var vt_hora = []
+
+                    for (var contar = 0; contar < json.length; contar++) {
+                        console.log(`Aqui!`, json[contar].pontos)
+                        var pontos = json[contar].pontos
+                        var hora = new Date(json[contar].horaPartida)
+                        hora = ((hora.getDate())) + "/" + ((hora.getMonth() + 1)) + "/" + hora.getFullYear() + " - " + hora.getHours() + ":" + hora.getMinutes();
+                        vt_pontos.push(pontos)
+                        vt_hora.push(hora)
+
+
+                    }
                     console.log(vt_hora)
                     gerarGrafico(vt_pontos, vt_cores, vt_hora)
-                    
+
                 })
-            } 
+            }
         } else {
-            vt_pontos = [0, 0 ,0 ,0 ,0]
+            vt_pontos = [0, 0, 0, 0, 0]
             vt_cores = [`#fff`, `#fff`, `#fff`, `#fff`, `#fff`]
             vt_hora = [`-`, `-`, `-`, `-`, `-`]
             console.log(`Nenhum Resultado Encontrado ou Erro`)
@@ -225,77 +245,82 @@
     }
 
     function trocarPatente(score) {
-        
-        
-        if(score < 100 ){
-        img.src = `./img/soldado.png`
-        desig.innerHTML = `SOLDADO`
-        
-    } else if(score < 200){
-        img.src = `./img/cabo.png`
-        desig.innerHTML = `CABO`
-        
-    } else if(score < 300){
-        img.src = `./img/3_sargento.png`
-        desig.innerHTML = `3°SARGENTO`
-        
-    } else if(score < 400){
-        img.src = `./img/2_sargento.png`
-        desig.innerHTML = `2°SARGENTO`
-        
-    } else if(score < 500){
-        img.src = `./img/1_sargento.png`
-        desig.innerHTML = `1°SARGENTO`
-        
-    } else if(score < 600){
-        img.src = `./img/subtenente.png`
-        desig.innerHTML = `SUBTENENTE`
-        
-    } else if(score < 800){
-        img.src = `./img/Aspirante.png`
-        desig.innerHTML = `ASPIRANTE`
-        
-    }else if(score < 1000){
-        img.src = `./img/2_tenente.gif`
-        desig.innerHTML = `2°TENENTE`
-        
-    } else if(score < 1200){
-        img.src = `./img/1_tenente.gif`
-        desig.innerHTML = `1°TENENTE`
-        
-    } else if(score < 1400){
-        img.src = `./img/capitao.png`
-        desig.innerHTML = `CAPITÃO`
-        
-    } else if(score < 1600){
-        img.src = `./img/major.gif`
-        desig.innerHTML = `MAJOR`
-        
-    } else if(score < 1800){
-        img.src = `./img/tenente_coronel.gif`
-        desig.innerHTML = `TENENTE-CORONEL`
-        
-    } else if(score < 2000){
-        img.src = `./img/coronel.png`
-        desig.innerHTML = `CORONEL`
-        
-    } else if(score < 2400){
-        img.src = `./img/general_brigada.gif`
-        desig.innerHTML = `GENERAL DE BRIGADA`
-        
-    } else if(score < 2800){
-        img.src = `./img/general_divisao.gif`
-        desig.innerHTML = `GENERAL DE DIVISÃO`
-        
-    } else if(score < 3200){
-        img.src = `./img/general_exercito.gif`
-        desig.innerHTML = `GENERAL DE EXÉRCITO`
 
-    } else if(score < 4000){
-        img.src = `./img/marechal.gif`
-        desig.innerHTML = `MARECHAL`
-    } 
-    
-}
+        if (score > 0) {
+            caixa_metrica.style.display = `block`
+        }
+        
+
+
+        if (score < 100) {
+            img.src = `./img/soldado.png`
+            desig.innerHTML = `SOLDADO`
+
+        } else if (score < 200) {
+            img.src = `./img/cabo.png`
+            desig.innerHTML = `CABO`
+
+        } else if (score < 300) {
+            img.src = `./img/3_sargento.png`
+            desig.innerHTML = `3°SARGENTO`
+
+        } else if (score < 400) {
+            img.src = `./img/2_sargento.png`
+            desig.innerHTML = `2°SARGENTO`
+
+        } else if (score < 500) {
+            img.src = `./img/1_sargento.png`
+            desig.innerHTML = `1°SARGENTO`
+
+        } else if (score < 600) {
+            img.src = `./img/subtenente.png`
+            desig.innerHTML = `SUBTENENTE`
+
+        } else if (score < 800) {
+            img.src = `./img/Aspirante.png`
+            desig.innerHTML = `ASPIRANTE`
+
+        } else if (score < 1000) {
+            img.src = `./img/2_tenente.gif`
+            desig.innerHTML = `2°TENENTE`
+
+        } else if (score < 1200) {
+            img.src = `./img/1_tenente.gif`
+            desig.innerHTML = `1°TENENTE`
+
+        } else if (score < 1400) {
+            img.src = `./img/capitao.png`
+            desig.innerHTML = `CAPITÃO`
+
+        } else if (score < 1600) {
+            img.src = `./img/major.gif`
+            desig.innerHTML = `MAJOR`
+
+        } else if (score < 1800) {
+            img.src = `./img/tenente_coronel.gif`
+            desig.innerHTML = `TENENTE-CORONEL`
+
+        } else if (score < 2000) {
+            img.src = `./img/coronel.png`
+            desig.innerHTML = `CORONEL`
+
+        } else if (score < 2400) {
+            img.src = `./img/general_brigada.gif`
+            desig.innerHTML = `GENERAL DE BRIGADA`
+
+        } else if (score < 2800) {
+            img.src = `./img/general_divisao.gif`
+            desig.innerHTML = `GENERAL DE DIVISÃO`
+
+        } else if (score < 4000) {
+            img.src = `./img/general_exercito.gif`
+            desig.innerHTML = `GENERAL DE EXÉRCITO`
+
+        } else {
+            img.src = `./img/marechal.gif`
+            desig.innerHTML = `MARECHAL`
+        }
+
+    }
 
 </script>

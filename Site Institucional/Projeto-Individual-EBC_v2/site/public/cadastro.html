@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AcquaTec | Cadastro</title>
+    <title>EBC | Cadastro</title>
 
 
     <script src="./js/funcoes.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="icon" href="./assets/img/military-hat.png">
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -149,16 +149,26 @@
             return false;
         }
 
-        if (emailVar.startsWith(`@`) && emailVar.endsWith(`@`)) {
+        if (emailVar.indexOf("@") == -1 || emailVar.startsWith("@") == true || emailVar.endsWith("@") == true || (emailVar.endsWith(".com") == false && emailVar.endsWith(".school") == false && emailVar.endsWith(".com.br") == false)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'E-mail inválido!',
+                background: 'white',
+            })
+            return false;
+        }
+
+        if (senhaVar != confirmacaoSenhaVar) {
 
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Preencha o Email corretamente!',
+                text: 'As senhas devem ser iguais!',
                 background: 'white',
             })
-
             return false;
+
         }
 
         // Enviando o valor da nova input
@@ -193,6 +203,8 @@
                 limparFormulario();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
+
+                
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);

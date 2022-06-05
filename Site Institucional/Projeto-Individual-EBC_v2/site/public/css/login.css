@@ -96,6 +96,7 @@ body {
     background-color: white;
     width: 120px;
     height: 40px;
+    /* border-radius: 60px; */
 }
 
 .register-cadastrar:hover, .register-login:hover{
