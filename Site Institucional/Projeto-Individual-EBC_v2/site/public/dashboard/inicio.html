@@ -132,7 +132,7 @@
             resposta.json().then(json => {
                 console.log(json[0].Pontos);
                 score = json[0].Pontos;
-                valor.innerHTML = `${score}`
+                valor.innerHTML = `${score}`  
 
                 trocarPatente(score)
             })
