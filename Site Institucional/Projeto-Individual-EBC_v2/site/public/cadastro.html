@@ -171,6 +171,18 @@
 
         }
 
+        if (senhaVar.length < 8) {
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'A senha deve conter no minimo 8 caracteres',
+                background: 'white',
+            })
+            return false;
+
+        }
+
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -204,7 +216,7 @@
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
 
-                
+
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
